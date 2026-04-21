@@ -1,3 +1,5 @@
+package watermelon;
+
 import java.util.*;
 
 public class Board {
