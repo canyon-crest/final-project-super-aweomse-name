@@ -84,7 +84,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseListener {
         // Title
         g.setColor(TEXT_DARK);
         g.setFont(new Font("SansSerif", Font.BOLD, 48));
-        drawCentered(g, "Suika 2048", WIDTH / 2, 160);
+        drawCentered(g, "Watermelon 2048", WIDTH / 2, 160);
 
         g.setFont(new Font("SansSerif", Font.PLAIN, 16));
         drawCentered(g, "Merge fruits to reach", WIDTH / 2, 210);
@@ -101,7 +101,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseListener {
         // Score header
         g.setColor(TEXT_DARK);
         g.setFont(new Font("SansSerif", Font.BOLD, 22));
-        g.drawString("Suika 2048", PAD, 38);
+        g.drawString("Watermelon 2048", PAD, 38);
 
         g.setFont(new Font("SansSerif", Font.PLAIN, 14));
         g.drawString("SCORE: " + board.getScore(), PAD, 60);
