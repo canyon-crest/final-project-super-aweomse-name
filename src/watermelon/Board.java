@@ -6,43 +6,67 @@ public class Board {
     public static final int SIZE = 4;
     private int[][] grid = new int[SIZE][SIZE];
     private int score = 0;
-    private Random rand = new Random();
 
-    public Board() {
+    public Board() { //Setup
         addRandomTile();
         addRandomTile();
     }
 
-    public int[][] getGrid() { return grid; }
-    public int getScore() { return score; }
+    public int[][] getGrid() { 
+        return grid;
+    }
+    public int getScore() {
+        return score;
+    }
 
-    public void addRandomTile() {
-        List<int[]> empty = new ArrayList<>();
-        for (int r = 0; r < SIZE; r++)
-            for (int c = 0; c < SIZE; c++)
-                if (grid[r][c] == 0) empty.add(new int[]{r, c});
-        if (empty.isEmpty()) return;
-        int[] cell = empty.get(rand.nextInt(empty.size()));
+    public void addRandomTile() {//Spawns new Fruit on move or game start
+        ArrayList<Integer[]> empty = new ArrayList<>();
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                if (grid[r][c] == 0) empty.add(new Integer[]{r, c});//Check empty spaces
+            }
+        }
+
+        if (empty.isEmpty()) {
+            return;
+        }
+
+        Integer[] cell = empty.get((int) (Math.random() * empty.size()));
         grid[cell[0]][cell[1]] = 2;
     }
 
     public boolean move(String dir) {
         int[][] before = copyGrid();
         switch (dir) {
-            case "UP":    slideUp();    break;
-            case "DOWN":  slideDown();  break;
-            case "LEFT":  slideLeft();  break;
-            case "RIGHT": slideRight(); break;
+            case "UP":    
+                slideUp();
+                break;
+            case "DOWN":
+                slideDown();
+                break;
+            case "LEFT":
+                slideLeft();
+                break;
+            case "RIGHT":
+                slideRight();
+                break;
         }
         boolean changed = !gridsEqual(before, grid);
-        if (changed) addRandomTile();
+        if (changed) {
+          addRandomTile();  
+        }
+
         return changed;
     }
 
     private int[] compress(int[] arr) {
         int[] result = new int[SIZE];
         int pos = 0;
-        for (int v : arr) if (v != 0) result[pos++] = v;
+        for (int v : arr) {
+            if (v != 0) {
+                result[pos++] = v;
+            }
+        }
         return result;
     }
 
