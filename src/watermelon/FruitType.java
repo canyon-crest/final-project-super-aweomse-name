@@ -5,7 +5,7 @@ public enum FruitType {
     CHERRY(2),
     STRAWBERRY(4),
     GRAPE(8),
-    DEKOPON(16),
+    BANANA(16),
     PERSIMMON(32),
     APPLE(64),
     PEAR(128),
